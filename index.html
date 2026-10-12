@@ -1,0 +1,489 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Dalpupo Construções: construções residenciais e comerciais de alto padrão em Cascavel-PR, com 35 anos de experiência.">
+<style>html{color-scheme:light}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Dalpupo Construções</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* Layout: página como prancha de projeto — rótulos em mono à esquerda, conteúdo à direita, cotas e níveis como detalhe. */
+:root {
+  --bg: #E8E9E5;
+  --surface: #F4F5F2;
+  --ink: #15191C;
+  --muted: #566066;
+  --line: #C2C7C5;
+  --accent: #1E5568;
+  --accent-ink: #FFFFFF;
+  --mark: #D9A400;
+  --font-display: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
+  --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101417;
+    --surface: #171D21;
+    --ink: #E7EAE8;
+    --muted: #97A1A6;
+    --line: #2B343A;
+    --accent: #6FB3C8;
+    --accent-ink: #0B1114;
+    --mark: #F0BE2B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101417;
+  --surface: #171D21;
+  --ink: #E7EAE8;
+  --muted: #97A1A6;
+  --line: #2B343A;
+  --accent: #6FB3C8;
+  --accent-ink: #0B1114;
+  --mark: #F0BE2B;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-inline: 16px;
+  padding-block: 0;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.wrap { max-width: 1120px; margin-inline: auto; }
+
+/* Topo */
+.top {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-block: 18px;
+  border-bottom: 1px solid var(--line);
+}
+.brand { display: flex; flex-direction: column; text-decoration: none; line-height: 1; }
+.brand b {
+  font-family: var(--font-display); font-weight: 900; font-size: 1.9rem; letter-spacing: .06em;
+}
+.brand small {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); margin-top: 4px;
+}
+.nav { display: flex; align-items: center; gap: 28px; }
+.nav a.l {
+  font-family: var(--font-mono); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase;
+  text-decoration: none; color: var(--muted);
+}
+.nav a.l:hover { color: var(--ink); }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-body); font-weight: 600; font-size: .95rem;
+  padding: 12px 20px; border: 1.5px solid var(--accent); border-radius: 2px;
+  background: var(--accent); color: var(--accent-ink); text-decoration: none;
+}
+.btn:hover { filter: brightness(1.08); }
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn.ghost:hover { background: var(--ink); color: var(--bg); filter: none; }
+
+/* Hero */
+.hero {
+  display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: 48px;
+  align-items: center; padding-block: 56px 64px;
+}
+.eyebrow {
+  font-family: var(--font-mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--accent); margin: 0 0 18px;
+}
+h1 {
+  font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(2.8rem, 8vw, 5.6rem); line-height: .92; letter-spacing: .005em;
+  margin: 0 0 24px; text-wrap: balance;
+}
+h1 em { font-style: normal; color: var(--accent); }
+.lead { font-size: 1.1rem; max-width: 52ch; color: var(--muted); margin: 0 0 32px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.sheet {
+  background: var(--surface); border: 1.5px solid var(--ink); min-width: 0;
+}
+.sheet svg { display: block; width: 100%; height: auto; }
+.sheet .tb {
+  display: grid; grid-template-columns: 1fr auto; gap: 12px;
+  border-top: 1.5px solid var(--ink); padding: 8px 12px;
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+.sheet .tb span:last-child { text-align: right; }
+
+.ink { stroke: var(--ink); fill: none; stroke-width: 1.6; }
+.fill-ink { fill: var(--ink); }
+.thin { stroke: var(--muted); fill: none; stroke-width: 1; }
+.glass { fill: var(--accent); fill-opacity: .2; stroke: var(--ink); stroke-width: 1.4; }
+.solid { fill: var(--line); stroke: var(--ink); stroke-width: 1.4; }
+.pile { fill: var(--surface); stroke: var(--ink); stroke-width: 1.5; }
+.lbl { font-family: var(--font-mono); font-size: 10.5px; fill: var(--muted); letter-spacing: .04em; }
+.bob { fill: var(--mark); stroke: var(--ink); stroke-width: 1.2; }
+.plumb { transform-origin: 76px 28px; animation: sway 6s ease-in-out infinite alternate; }
+@keyframes sway { from { transform: rotate(-1.4deg); } to { transform: rotate(1.4deg); } }
+
+/* Faixa de fatos */
+.facts {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-block: 1.5px solid var(--ink);
+}
+.facts div { padding: 18px 20px 18px 0; }
+.facts div + div { padding-left: 20px; border-left: 1px solid var(--line); }
+.facts dt {
+  font-family: var(--font-mono); font-size: .68rem; letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+}
+.facts dd {
+  margin: 4px 0 0; font-family: var(--font-display); font-weight: 800; text-transform: uppercase;
+  font-size: 1.5rem; line-height: 1.1;
+}
+
+/* Seções */
+section.s {
+  display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 32px;
+  padding-block: 72px 0;
+}
+.tag {
+  font-family: var(--font-mono); font-size: .75rem; letter-spacing: .14em; text-transform: uppercase;
+  color: var(--muted); padding-top: 10px; border-top: 3px solid var(--mark); align-self: start;
+}
+h2 {
+  font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+  font-size: clamp(2rem, 5vw, 3.2rem); line-height: .98; margin: 0 0 28px; text-wrap: balance;
+}
+.body { min-width: 0; }
+
+/* Serviços */
+.svc { list-style: none; margin: 0; padding: 0; border-top: 1.5px solid var(--ink); }
+.svc li {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 24px;
+  padding-block: 22px; border-bottom: 1px solid var(--line);
+}
+.svc h3 {
+  margin: 0; font-family: var(--font-display); font-weight: 800; font-size: 1.55rem; line-height: 1.1; text-transform: uppercase;
+}
+.svc p { margin: 0; color: var(--muted); max-width: 56ch; }
+
+/* Etapas */
+.steps { list-style: none; margin: 0; padding: 0; counter-reset: etapa; }
+.steps li {
+  position: relative; padding: 0 0 28px 56px; counter-increment: etapa;
+}
+.steps li::before {
+  content: counter(etapa);
+  position: absolute; left: 0; top: 0; width: 34px; height: 34px;
+  display: grid; place-items: center;
+  font-family: var(--font-mono); font-weight: 500; font-size: .9rem;
+  background: var(--surface); border: 1.5px solid var(--ink); border-radius: 50%;
+}
+.steps li::after {
+  content: ""; position: absolute; left: 16.5px; top: 40px; bottom: 6px; width: 1.5px; background: var(--line);
+}
+.steps li:last-child { padding-bottom: 0; }
+.steps li:last-child::after { display: none; }
+.steps h3 { margin: 4px 0 4px; font-size: 1.05rem; font-weight: 600; }
+.steps p { margin: 0; color: var(--muted); max-width: 58ch; }
+
+/* Obra em andamento */
+.case {
+  background: var(--surface); border: 1.5px solid var(--ink); padding: 28px;
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 32px;
+}
+.badge {
+  display: inline-block; font-family: var(--font-mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  padding: 4px 10px; border: 1.5px solid var(--ink); background: var(--mark); color: #15191C; margin-bottom: 16px;
+}
+.case h3 {
+  margin: 0 0 10px; font-family: var(--font-display); font-weight: 900; text-transform: uppercase;
+  font-size: 2rem; line-height: 1;
+}
+.case p { margin: 0 0 20px; color: var(--muted); }
+.done { list-style: none; margin: 0; padding: 0; }
+.done li {
+  display: flex; gap: 14px; align-items: baseline; padding-block: 11px; border-bottom: 1px solid var(--line);
+}
+.done li:first-child { border-top: 1px solid var(--line); }
+.done .k {
+  flex: none; font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; color: var(--accent); text-transform: uppercase; min-width: 74px;
+}
+
+/* Contato */
+.contact {
+  background: var(--ink); color: var(--bg);
+  padding: 40px 32px; display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 32px; align-items: center;
+}
+.contact h2 { margin: 0 0 12px; }
+.contact p { margin: 0; opacity: .8; max-width: 46ch; }
+.contact .box { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.contact .btn { background: var(--bg); color: var(--ink); border-color: var(--bg); justify-content: center; }
+.contact .btn:hover { filter: none; background: transparent; color: var(--bg); }
+.contact .btn.alt { background: transparent; color: var(--bg); }
+.contact .btn.alt:hover { background: var(--bg); color: var(--ink); }
+.handle { font-family: var(--font-mono); font-size: .9rem; letter-spacing: .04em; overflow-wrap: anywhere; text-decoration: underline; text-underline-offset: 4px; }
+.loc { font-family: var(--font-mono); font-size: .75rem; letter-spacing: .12em; text-transform: uppercase; opacity: .7; }
+
+footer {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px;
+  margin-top: 56px; padding-block: 24px 40px; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: minmax(0, 1fr); padding-block: 40px 48px; gap: 36px; }
+  section.s { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 56px 0; }
+  .tag { max-width: 200px; }
+  .case, .contact { grid-template-columns: minmax(0, 1fr); }
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .facts div:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .nav a.l { display: none; }
+  .svc li { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .case { padding: 20px; }
+  .contact { padding: 28px 20px; }
+  .btn { width: 100%; justify-content: center; }
+  .top .btn { width: auto; padding: 10px 14px; font-size: .85rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .plumb { animation: none; }
+}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#topo" aria-label="Dalpupo Construções, início">
+      <b>DALPUPO</b>
+      <small>Construções · Cascavel-PR</small>
+    </a>
+    <nav class="nav" aria-label="Principal">
+      <a class="l" href="#servicos">Serviços</a>
+      <a class="l" href="#etapas">Etapas</a>
+      <a class="l" href="#obra">Obra atual</a>
+      <a class="btn" href="#contato">Pedir orçamento</a>
+    </nav>
+  </header>
+
+  <main id="topo">
+    <div class="hero">
+      <div>
+        <p class="eyebrow">Construções residenciais e comerciais de alto padrão</p>
+        <h1>Do aterro à <em>entrega da chave</em>, com 35 anos de obra.</h1>
+        <p class="lead">A Dalpupo constrói casas, sobrados e prédios comerciais em Cascavel e região. Cuidamos da fundação, da contenção, da estrutura e do acabamento, com acompanhamento técnico em cada etapa.</p>
+        <div class="cta">
+          <a class="btn" href="#contato">Pedir orçamento</a>
+          <a class="btn ghost" href="#etapas">Como trabalhamos</a>
+        </div>
+      </div>
+
+      <figure class="sheet" style="margin:0">
+        <svg viewBox="0 0 560 440" role="img" aria-label="Corte esquemático de uma casa de dois pavimentos sobre fundação em estacas, com níveis e cotas">
+          <defs>
+            <pattern id="solo" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+              <line x1="0" y1="0" x2="0" y2="9" style="stroke:var(--line);stroke-width:1.2"/>
+            </pattern>
+          </defs>
+
+          <!-- solo -->
+          <rect x="20" y="332" width="520" height="66" fill="url(#solo)"/>
+          <line class="ink" x1="20" y1="332" x2="540" y2="332"/>
+
+          <!-- estacas e baldrame -->
+          <g>
+            <rect class="pile" x="118" y="332" width="14" height="62"/>
+            <rect class="pile" x="196" y="332" width="14" height="62"/>
+            <rect class="pile" x="274" y="332" width="14" height="62"/>
+            <rect class="pile" x="352" y="332" width="14" height="62"/>
+            <rect class="pile" x="430" y="332" width="14" height="62"/>
+          </g>
+          <rect class="solid" x="100" y="322" width="362" height="10"/>
+
+          <!-- térreo -->
+          <rect class="ink" x="110" y="236" width="340" height="86"/>
+          <rect class="glass" x="124" y="252" width="132" height="70"/>
+          <line class="thin" x1="168" y1="252" x2="168" y2="322"/>
+          <line class="thin" x1="212" y1="252" x2="212" y2="322"/>
+          <rect class="solid" x="334" y="236" width="116" height="86"/>
+          <rect class="glass" x="272" y="262" width="46" height="60"/>
+
+          <!-- laje intermediária -->
+          <rect class="fill-ink" x="170" y="228" width="300" height="8"/>
+
+          <!-- pavimento superior -->
+          <rect class="ink" x="180" y="150" width="280" height="78"/>
+          <rect class="glass" x="198" y="166" width="244" height="50"/>
+          <line class="thin" x1="259" y1="166" x2="259" y2="216"/>
+          <line class="thin" x1="320" y1="166" x2="320" y2="216"/>
+          <line class="thin" x1="381" y1="166" x2="381" y2="216"/>
+
+          <!-- laje de cobertura -->
+          <rect class="fill-ink" x="170" y="142" width="300" height="8"/>
+
+          <!-- cota horizontal -->
+          <g class="thin">
+            <line x1="170" y1="116" x2="470" y2="116"/>
+            <line x1="170" y1="108" x2="170" y2="124"/>
+            <line x1="470" y1="108" x2="470" y2="124"/>
+            <line x1="170" y1="124" x2="170" y2="142" stroke-dasharray="2 3"/>
+            <line x1="470" y1="124" x2="470" y2="142" stroke-dasharray="2 3"/>
+          </g>
+          <text class="lbl" x="320" y="108" text-anchor="middle">10,00 m</text>
+
+          <!-- cota vertical -->
+          <g class="thin">
+            <line x1="510" y1="142" x2="510" y2="332"/>
+            <line x1="502" y1="142" x2="518" y2="142"/>
+            <line x1="502" y1="332" x2="518" y2="332"/>
+            <line x1="470" y1="142" x2="502" y2="142" stroke-dasharray="2 3"/>
+            <line x1="462" y1="332" x2="502" y2="332" stroke-dasharray="2 3"/>
+          </g>
+          <text class="lbl" x="524" y="240" transform="rotate(90 524 240)" text-anchor="middle">6,30 m</text>
+
+          <!-- níveis -->
+          <g>
+            <path d="M20 332 l7 -9 l7 9 z" class="fill-ink"/>
+            <text class="lbl" x="40" y="336">±0,00</text>
+            <path d="M20 232 l7 -9 l7 9 z" class="fill-ink"/>
+            <text class="lbl" x="40" y="236">+3,15</text>
+            <path d="M20 146 l7 -9 l7 9 z" class="fill-ink"/>
+            <text class="lbl" x="40" y="150">+6,30</text>
+          </g>
+
+          <!-- prumo -->
+          <g class="plumb">
+            <line class="thin" x1="76" y1="28" x2="76" y2="268"/>
+            <circle cx="76" cy="28" r="2.5" class="fill-ink"/>
+            <path class="bob" d="M68 264 h16 l-8 22 z"/>
+          </g>
+
+          <text class="lbl" x="150" y="414">ESTACAS</text>
+          <text class="lbl" x="20" y="430">CORTE A-A · ESC. 1:100</text>
+        </svg>
+        <div class="tb"><span>Prancha 01 · Ilustração esquemática</span><span>Dalpupo</span></div>
+      </figure>
+    </div>
+
+    <dl class="facts">
+      <div><dt>Experiência</dt><dd>35 anos</dd></div>
+      <div><dt>Onde atuamos</dt><dd>Cascavel e região</dd></div>
+      <div><dt>Obras</dt><dd>Residenciais e comerciais</dd></div>
+      <div><dt>Padrão</dt><dd>Alto padrão</dd></div>
+    </dl>
+
+    <section class="s" id="servicos">
+      <div class="tag">Serviços</div>
+      <div class="body">
+        <h2>O que a Dalpupo executa</h2>
+        <ul class="svc">
+          <li>
+            <h3>Casas e sobrados de alto padrão</h3>
+            <p>Construção completa, com cronograma combinado antes do primeiro dia e visitas técnicas ao longo da obra.</p>
+          </li>
+          <li>
+            <h3>Obras comerciais</h3>
+            <p>Lojas, salas e edificações comerciais executadas conforme o projeto aprovado e as exigências do município.</p>
+          </li>
+          <li>
+            <h3>Fundações e contenções</h3>
+            <p>Estacas, baldrames e muros de arrimo, com reforço quando o terreno pede. É onde a obra começa a durar.</p>
+          </li>
+          <li>
+            <h3>Reformas e ampliações</h3>
+            <p>Adequação de imóveis existentes, com planejamento para manter a obra limpa e o prazo previsível.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="s" id="etapas">
+      <div class="tag">Etapas da obra</div>
+      <div class="body">
+        <h2>De baixo para cima, na ordem certa</h2>
+        <ol class="steps">
+          <li>
+            <h3>Terreno, tapumes e aterro</h3>
+            <p>Canteiro isolado e organizado, terreno regularizado e nível definido.</p>
+          </li>
+          <li>
+            <h3>Fundação</h3>
+            <p>Perfuração, armação e concretagem das estacas, depois os baldrames que amarram a estrutura.</p>
+          </li>
+          <li>
+            <h3>Contenção</h3>
+            <p>Muros de arrimo nos limites do lote, com reforço onde o desnível exige.</p>
+          </li>
+          <li>
+            <h3>Estrutura e alvenaria</h3>
+            <p>Pilares, vigas, lajes e fechamento das paredes, com conferência de prumo e nível.</p>
+          </li>
+          <li>
+            <h3>Instalações e acabamento</h3>
+            <p>Elétrica, hidráulica, esquadrias, revestimentos e pintura, na sequência que evita retrabalho.</p>
+          </li>
+          <li>
+            <h3>Entrega</h3>
+            <p>Vistoria final com o cliente e correção de qualquer detalhe antes de entregar a chave.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="s" id="obra">
+      <div class="tag">Obra atual</div>
+      <div class="body">
+        <h2>Acompanhe uma obra de verdade</h2>
+        <div class="case">
+          <div>
+            <span class="badge">Em andamento</span>
+            <h3>R&amp;A Residencial Treviso</h3>
+            <p>As primeiras etapas já foram executadas e registradas em vídeo. As novidades saem primeiro no Instagram da Dalpupo.</p>
+            <a class="btn ghost" href="https://www.instagram.com/dalpupo_construcoes/" target="_blank" rel="noopener">Ver no Instagram</a>
+          </div>
+          <ul class="done">
+            <li><span class="k">Etapa 1</span><span>Início de obra e tapumes</span></li>
+            <li><span class="k">Etapa 2</span><span>Aterro</span></li>
+            <li><span class="k">Etapa 3</span><span>Fundação</span></li>
+            <li><span class="k">Etapa 4</span><span>Muro de arrimo lateral</span></li>
+            <li><span class="k">Etapa 5</span><span>Reforço do muro de arrimo</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="s" id="contato" style="grid-template-columns:minmax(0,1fr)">
+      <div class="contact">
+        <div>
+          <h2>Vai construir ou reformar? Fale com a Dalpupo.</h2>
+          <p>Conte onde fica o terreno ou o imóvel e o que você pretende fazer. Respondemos pelo Direct do Instagram ou pelo WhatsApp.</p>
+        </div>
+        <div class="box">
+          <a class="btn" href="https://wa.me/5545999524094" target="_blank" rel="noopener">WhatsApp (45) 99952-4094</a>
+          <a class="btn alt" href="https://wa.me/5545984069496" target="_blank" rel="noopener">WhatsApp (45) 98406-9496</a>
+          <a class="handle" href="https://www.instagram.com/dalpupo_construcoes/" target="_blank" rel="noopener">Instagram @dalpupo_construcoes</a>
+          <span class="loc">Cascavel · Paraná</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>Dalpupo Prestadora de Serviços Ltda</span>
+    <span>Cascavel-PR · 2026</span>
+  </footer>
+</div>
+</body>
+</html>
